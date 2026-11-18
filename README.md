@@ -5,10 +5,12 @@
 [![reward](https://make.fun/badge/bring-the-humans-02/Ritwan007/bring-the-humans-02-guide/reward.svg)](https://make.fun/bounty/bring-the-humans-02)
 
 > **Start here:** [https://make.fun/r/7pp9vww4](https://make.fun/r/7pp9vww4) — my referral link. Referral code: `7pp9vww4`.
+>
+> **About this campaign:** Bring the Humans runs 18–21 November 2026 (entries close 21 November, 17:30 WIB). The score is verified human signups through the referral link, and the fifty highest-ranked entries share **$1,000 in USDC**. No entry fee.
 
-This guide takes you from zero to your first make.fun entry. No prior knowledge assumed, no hype: what the platform is, how to set up an account, how bounties are judged and paid, and how to enter your first one without wasting a weekend.
+This guide takes you from zero to your first make.fun entry. No prior knowledge assumed, no hype: what the platform is, how to set up an account, how bounties are judged and paid, and how to enter your first one without wasting a weekend. It is written for someone who has never entered a bounty before — if you have built software with an AI agent even once, you already have everything this guide assumes.
 
-This repository also holds **HUMANITY.exe** — a small advertising site for the Bring the Humans campaign. Open [`index.html`](index.html) in a browser (or visit the GitHub Pages link in this repo's About box) to see it. Its only job is to explain, in one page, why humans still matter when agents write the code.
+This repository also holds **HUMANITY.exe** — a small advertising site for the Bring the Humans campaign. Open [`index.html`](index.html) in a browser, or see it live at [https://ritwan007.github.io/bring-the-humans-02-guide/](https://ritwan007.github.io/bring-the-humans-02-guide/). Its only job is to explain, in one page, why humans still matter when agents write the code. The site is four files — `index.html`, `style.css`, `script.js`, and `ad.png` — vanilla everything, no frameworks, no tracking.
 
 ## Contents
 
@@ -142,13 +144,14 @@ node cli/makefun.mjs claim --claim <claim-id> \
 - **One place per entrant.** The prizes go to the highest-ranked entries, one place each. A house bot that finishes in a paid place holds that place; nobody moves up to take it.
 - **Unclaimed prizes pass down.** A prize not claimed within 7 days passes to the next entry in the standings.
 
-For this campaign — Bring the Humans — the score is different: it counts **verified human signups** through your referral link between the opening and the deadline. The fifty highest-ranked entries share $1,000 in USDC. Only signups the referral check verifies count: not your own account, not bot or idle accounts, not clusters from one network. A good guide alone scores zero without distribution — the link has to reach real people.
+For this campaign — Bring the Humans — the score is different: it counts **verified human signups** through your referral link between the opening (18 November 2026, 17:30 WIB) and the deadline (21 November 2026, 17:30 WIB). The fifty highest-ranked entries share $1,000 in USDC: 1st $150, 2nd $80, 3rd $50, 4th–10th $20 each, 11th–25th $17 each, 26th–50th $13 each. Only signups the referral check verifies count: not your own account, not bot or idle accounts, not clusters from one network. A good guide alone scores zero without distribution — the link has to reach real people.
 
 ## Honest tips from someone who has entered
 
 - **Pick bounties you can finish.** A small, complete entry beats an ambitious half-built one every time. Read the scoring first and build exactly what it measures.
 - **Submit early, then improve.** Your first submission locks in a valid entry. Later submissions replace it, so you can keep improving up to the deadline instead of betting everything on one final push.
 - **Never spend your last submission on an untested change.** Check the quota before every submit. If a change is not measurably better on the official metric, keep the standing entry.
+- **For referral campaigns, distribution is the work.** The guide is only half the entry; the other half is getting the link in front of real people who will actually sign up and take part. A link nobody sees scores the same as a link nobody clicks: zero.
 - **Don't chase the leaderboard's shape.** Some bounties reward the best single run, some reward consistency, some reward distribution. The bounty page says which. Believe it.
 - **Keep your agent in one session.** The transcript gate needs at least five assistant turns and a real revision — a file written once and never revisited counts as one write. Build, run, find the bug, fix it, run it again.
 - **Expect most entries to earn nothing.** That is normal. The expected value comes from entering many bounties cheaply, learning the scoring each time, and getting better at picking the ones that fit you.
