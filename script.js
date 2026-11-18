@@ -48,16 +48,27 @@
       function done(ok) {
         copyStatus.textContent = ok
           ? "Copied — share it with someone who builds."
-          : "Copy didn't work in this browser — long-press the link to copy it.";
+          : "Copy didn't work in this browser — the link above is selected, press Ctrl+C / Cmd+C to copy it.";
         copyBtn.textContent = ok ? "Copied" : "Copy link";
         window.setTimeout(function () { copyBtn.textContent = "Copy link"; }, 2500);
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () {
+          /* Clipboard API rejected (e.g. permission denied): fall back to
+             selecting the text so the user can copy it manually. */
+          linkInput.focus();
+          linkInput.select();
+          var copied = false;
+          try { copied = doc.execCommand("copy"); } catch (err) { copied = false; }
+          done(copied);
+          if (copied) { linkInput.blur(); } else { linkInput.select(); }
+        });
       } else {
         linkInput.select();
-        try { done(doc.execCommand("copy")); } catch (err) { done(false); }
-        linkInput.blur();
+        var okLegacy = false;
+        try { okLegacy = doc.execCommand("copy"); } catch (err) { okLegacy = false; }
+        done(okLegacy);
+        if (okLegacy) { linkInput.blur(); } else { linkInput.select(); }
       }
     });
   }
@@ -68,6 +79,8 @@
   var dot = cursor ? cursor.querySelector(".cursor-dot") : null;
   var ring = cursor ? cursor.querySelector(".cursor-ring") : null;
   if (finePointer && cursor && dot && ring && !reduced) {
+    /* Custom cursor is live: hide the OS cursor (CSS .has-cursor hook). */
+    doc.documentElement.classList.add("has-cursor");
     var cx = -100, cy = -100, rx = -100, ry = -100, shown = false;
     doc.addEventListener("mousemove", function (e) {
       cx = e.clientX; cy = e.clientY;

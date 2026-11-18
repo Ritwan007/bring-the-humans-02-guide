@@ -429,6 +429,10 @@ html.js .reveal.in { opacity: 1; transform: none; }
 /* Custom cursor: fine pointers only */
 .cursor { display: none; }
 @media (pointer: fine) {
+  /* Hide the OS cursor only when the custom cursor is actually active
+     (JS adds .has-cursor to <html>); inputs keep a text cursor. */
+  html.has-cursor body, html.has-cursor a, html.has-cursor button { cursor: none; }
+  html.has-cursor input, html.has-cursor textarea { cursor: text; }
   .cursor { display: block; position: fixed; left: 0; top: 0; z-index: 80; pointer-events: none; }
   .cursor-dot, .cursor-ring {
     position: fixed;
